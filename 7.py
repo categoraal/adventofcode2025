@@ -26,14 +26,17 @@ print(len(sols))
 data = [[0 if i == '.' else i for i in j] for j in data]
 a,b = start
 data[a][b] = 1
+p1 = 0
 for idr,line in enumerate(data[1:]):
     idr += 1
     for idc,c in enumerate(line):
         if c == '^':
             data[idr][idc+1] += data[idr-1][idc]
             data[idr][idc-1] += data[idr-1][idc]
+            if data[idr-1][idc] != 0:p1+=1
         else:
             up = data[idr-1][idc]
             if type(up) == int:
                 data[idr][idc] = c+up
+print(p1)
 print(sum(data[-1]))
