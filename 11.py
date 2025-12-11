@@ -14,7 +14,6 @@ for p in queue:
     else:
         for i in graph[p]:
             queue.append(i)
-    
 print(p1)
 
 cache = {}
@@ -37,4 +36,4 @@ c = (solve('dac','fft',('out','svr')))
 d = (solve('fft','dac',('out','svr')))
 e = (solve('fft','out',('svr','dac')))
 f = (solve('dac','out',('fft','svr')))
-print(max(b*d*f,a*c*e))
+print(b*d*f+a*c*e)
